@@ -4,7 +4,7 @@ else
 document.addEventListener("DOMContentLoaded",callbackFunction)}
 function loadIframe(){var containerDiv=document.createElement('div');
 containerDiv.setAttribute('id','tile-container');
-containerDiv.setAttribute('style','width:30%; height:62%;background:transparents;display: block !important;z-index: 2000000000!important;right: 10px!important;bottom: 0px!important;left: auto!important;position: fixed!important;');
+containerDiv.setAttribute('style','width:40%; height:62%;background:transparents;display: block !important;z-index: 2000000000!important;right: 10px!important;bottom: 0px!important;left: auto!important;position: fixed!important;');
 document.body.appendChild(containerDiv);var ifrm=document.createElement("iframe");
 ifrm.setAttribute("frameborder","0");
 ifrm.setAttribute("border","0");
@@ -129,6 +129,7 @@ display: none;
   pointer-events: auto;
 }
 .wrapper .head-text{
+  height: 60px;
   line-height: 60px;
   color: #fff;
   border-radius: 15px 15px 0 0;
@@ -225,6 +226,27 @@ form .textarea textarea:focus::placeholder{
 .chat-box .form2 .field button{
   height: 45px;
 }
+@media (max-width: 1062px) {
+
+  #message {
+    height: 200px;
+  }
+}
+@media (max-width: 375px) {
+
+  .wrapper{
+    width: 80%;
+  }
+  #tile-container{
+    width:90%;
+  }
+}
+#btSendMsg {
+
+    padding-top: 12px;
+    padding-right: 30px;
+    padding-bottom: 3%;
+}
 .chat-box form .field button:active{
   transform: scale(0.97);
 }
@@ -245,8 +267,7 @@ form .textarea textarea:focus::placeholder{
            
            <div class="form-outer">
              <form id="formStart" class="form1" action="#">
-               <div class="desc-text">
-                 Please fill out the form below to start chatting with the next available agent.</div>
+              
                <div class="field">
                  <input type="text" id="username" placeholder="Your Name" required>
                </div>
@@ -254,7 +275,6 @@ form .textarea textarea:focus::placeholder{
                  <input type="email" placeholder="Email Address" required>
                </div>
                <div class="field textarea">
-                 <!-- Due to more textarea fields I got an error so I've changed the textarea name into changeit..Change the tag name to use it -->
                  <changeit cols="30" rows="10" placeholder="Explain your queries.." required></changeit>
                </div>
                <div class="field startBtn">
@@ -266,7 +286,7 @@ form .textarea textarea:focus::placeholder{
                  <textarea id="message" placeholder="Bạn hãy nhập lời nhắn.." name="msg" rows="11.5" required></textarea>
                </div>
                <div class="field">
-                 <button type="button" onclick="sendMsgForm()">Send</button>
+                 <button type="button" id="btSendMsg" onclick="sendMsgForm()">Send</button>
                </div>
                </form>
            </div>
